@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+outputs/audio/*.wav
+outputs/audio/*.mp3
+outputs/figures/*.png
+outputs/figures/*.pdf
+.env
