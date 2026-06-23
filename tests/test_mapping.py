@@ -1,15 +1,13 @@
-from src.sonification.mapping import map_range, sequence_to_events
+from src.sonification.mapping import crossing_sign_to_pitch, crossings_to_events
 
 
-def test_map_range_midpoint_for_degenerate_interval():
-    assert map_range(5, 1, 1, 10, 20) == 15
+def test_crossing_sign_to_pitch_positive():
+    assert crossing_sign_to_pitch(1, base_pitch=60, interval=7) == 67
 
 
-def test_sequence_to_events_length():
-    events = sequence_to_events([1, -1, 0])
-    assert len(events) == 3
+def test_crossing_sign_to_pitch_negative():
+    assert crossing_sign_to_pitch(-1, base_pitch=60, interval=7) == 53
 
 
-def test_zero_sequence_event_is_silent():
-    events = sequence_to_events([0])
-    assert events[0].amplitude == 0.0
+def test_crossings_to_events_length():
+    assert len(crossings_to_events([1, -1, 1])) == 3

@@ -1,125 +1,101 @@
-# Sonorización y visualización de nudos matemáticos
+# Sonorización de nudos
 
-Repositorio base para el proyecto del **Laboratorio de Sonorización y Visualización de las Matemáticas**: exploración computacional, visual y sonora de estructuras matemáticas, con énfasis inicial en **teoría de nudos**.
+Repositorio del proyecto **Sonorización de nudos**, una investigación académico-artística-computacional que busca traducir estructuras de la teoría matemática de nudos en material sonoro y musical.
 
-Este repositorio reúne el plan de trabajo, la bitácora conceptual, el marco teórico inicial, los mapeos matemático-sonoros y una primera base de código en Python/Sonic Pi para generar ejemplos sonoros reproducibles.
+El proyecto se sitúa en el cruce entre matemáticas, física, música, arte, filología, programación y tecnología. Su propósito inicial no es solamente producir audios, sino construir un lenguaje de traducción entre objetos topológicos y parámetros musicales.
 
 ## Idea central
 
-El proyecto busca construir un puente entre:
+Un nudo no genera automáticamente una canción cerrada.  
+Un nudo puede generar un **espacio de improvisación**.
+
+La sonificación se entiende aquí como un puente entre:
 
 ```text
-estructura matemática → representación computacional → mapeo acústico → pieza sonora / visualización / reporte
+estructura matemática → representación computacional → mapeo sonoro → gesto musical → forma compositiva
 ```
 
-En la primera etapa se trabajará con nudos básicos, propiedades combinatorias y representaciones como palabras de trenza, diagramas de cruces y, de forma progresiva, invariantes como polinomios e invariantes computables.
+El nudo aporta restricciones, simetrías, recurrencias, cruces, orientaciones y patrones. La música organiza esos datos como altura, ritmo, timbre, duración, densidad, dinámica, silencio, repetición e improvisación.
 
-## Plan general
+## Objetivos generales
 
-### I. Introducción: 19 de mayo – 19 de junio
+- Estudiar familias básicas de nudos y sus representaciones.
+- Construir mapeos entre propiedades matemáticas y parámetros sonoros.
+- Implementar prototipos en Python y Sonic Pi.
+- Generar ejemplos reproducibles de sonificación.
+- Documentar el proceso de investigación para servicio social, tesis y difusión.
+- Crear una base clara para futuras extensiones hacia MIDI, audio, visualización interactiva y composición algorítmica.
 
-- Instalación y capacitación en Python.
-- Introducción a Sonic Pi y generación de sonido en tiempo real.
-- Diseño de mapeos entre variables matemáticas y parámetros acústicos.
-- Introducción a la sonificación de datos en ciencia y arte.
-- Introducción a teoría de nudos y sus representaciones matemáticas.
+## Estado actual
 
-### II. Desarrollo de la sonorización: 19 de junio – 29 de diciembre
+Este repositorio está en etapa inicial de organización.  
+La prioridad actual es rescatar y sistematizar las ideas desarrolladas durante la conversación de trabajo en ChatGPT para que no queden dispersas.
 
-- Estudio y representación de nudos básicos.
-- Herramientas computacionales para manipular estructuras asociadas a nudos.
-- Estrategias de sonorización desde cruces, secuencias, trenzas, invariantes y estructura.
-- Implementación en Python y Sonic Pi.
-- Producción de ejemplos sonoros.
+Este primer esbozo incluye:
 
-### III. Montaje y reporte final: 29 de diciembre – 18 de mayo de 2027
+- manifiesto conceptual;
+- marco matemático inicial;
+- diseño preliminar de mapeos sonoros;
+- estética musical del proyecto;
+- ruta de trabajo para servicio social/tesis;
+- primeros archivos de Sonic Pi y Python;
+- bitácora inicial;
+- bibliografía base.
 
-- Documentación del código.
-- Organización del repositorio digital.
-- Integración del material sonoro en una plataforma de difusión digital.
-- Elaboración de informe final.
+## Herramientas previstas
+
+- Python
+- Sonic Pi
+- GitHub
+- Markdown / LaTeX
+- NumPy
+- Matplotlib
+- MIDI
+- Mathematica / KnotTheory, en una etapa posterior
+- Posibles herramientas de audio digital para edición y mezcla
 
 ## Estructura del repositorio
 
 ```text
-sonorizacion-nudos-repo/
+sonorizacion-nudos/
 ├── README.md
+├── MANIFEST.md
 ├── requirements.txt
 ├── docs/
-│   ├── 00_resumen_historial.md
-│   ├── 01_plan_trabajo.md
-│   ├── 02_marco_teorico.md
-│   ├── 03_estado_del_arte_y_recursos.md
-│   ├── 04_mapeos_sonoros.md
-│   ├── 05_bitacora_decisiones.md
-│   ├── 06_roadmap_2026_2027.md
-│   ├── 07_reporte_final_plantilla.md
-│   ├── 08_difusion_album.md
-│   ├── 09_github_paso_a_paso.md
-│   └── 10_glosario.md
-├── bibliography/
-│   └── referencias.bib
+│   ├── 00_estado_del_proyecto.md
+│   ├── 01_manifiesto_conceptual.md
+│   ├── 02_marco_teorico_nudos.md
+│   ├── 03_sonificacion_y_mapeos.md
+│   ├── 04_estetica_musical.md
+│   ├── 05_theta_invariant.md
+│   ├── 06_plan_tesis_servicio_social.md
+│   ├── 07_referencias_iniciales.md
+│   └── bitacora/
+├── sonic_pi/
 ├── src/
 │   ├── knots/
-│   │   ├── __init__.py
-│   │   ├── representations.py
-│   │   └── trefoil.py
-│   └── sonification/
-│       ├── __init__.py
-│       ├── mapping.py
-│       └── synthesis.py
-├── examples/
-│   └── demo_trebol_sonificacion.py
-├── sonic_pi/
-│   └── trebol_basico.rb
+│   ├── sonification/
+│   └── visualization/
 ├── notebooks/
-│   └── 00_inicio.ipynb
 ├── data/
-│   ├── raw/
-│   └── processed/
 ├── outputs/
-│   ├── audio/
-│   └── figures/
 └── tests/
-    └── test_mapping.py
 ```
 
-## Instalación rápida
+## Primeros prototipos
 
-Desde la terminal, dentro de la carpeta del repositorio:
+- Sonificación del nudo trébol.
+- Mapeo de cruces a eventos musicales.
+- Conversión de coordenadas paramétricas a secuencias de notas.
+- Exploración de la relación entre repetición topológica e improvisación musical.
 
-```bash
-python -m venv .venv
-source .venv/bin/activate      # macOS / Linux
-# .venv\Scripts\activate       # Windows PowerShell
-pip install -r requirements.txt
-```
+## Dirección estética
 
-## Primer ejemplo reproducible
+El piano puede funcionar como voz topológica principal.  
+Después pueden incorporarse bajo, guitarra, percusión, sintetizadores u otras capas instrumentales.
 
-Ejecuta:
+El jazz aparece como un lenguaje fértil porque permite trabajar con estructura, variación, conversación, tensión, resolución e improvisación. Una referencia estética importante es *A Love Supreme*, no para copiar su forma, sino por su potencia espiritual, modal, repetitiva y expansiva.
 
-```bash
-python examples/demo_trebol_sonificacion.py
-```
+## Licencia
 
-Esto genera una primera sonificación del nudo trébol en:
-
-```text
-outputs/audio/trebol_demo.wav
-outputs/figures/trebol_eventos.png
-```
-
-## Ruta mínima del proyecto
-
-1. Representar un nudo básico, por ejemplo el nudo trébol.
-2. Extraer una estructura discreta: cruces, palabra de trenza, signos, secuencias.
-3. Definir un mapeo sonoro: frecuencia, duración, intensidad, timbre.
-4. Generar sonido con Python y/o Sonic Pi.
-5. Documentar el proceso con figuras, audio y explicación matemática.
-6. Repetir el procedimiento con más nudos y comparar resultados.
-
-## Estado actual
-
-Repositorio inicial de trabajo. Contiene una estructura organizada, documentos base y código demostrativo. La siguiente fase consiste en sustituir ejemplos simbólicos por datos matemáticos calculados o importados desde herramientas especializadas.
-
+Pendiente de definir.

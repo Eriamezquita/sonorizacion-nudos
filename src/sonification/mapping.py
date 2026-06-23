@@ -1,67 +1,52 @@
-"""Mapeos de estructuras discretas a eventos sonoros."""
+"""
+Mapeos iniciales de propiedades de nudos a parámetros musicales.
+
+Este archivo debe crecer gradualmente. Por ahora contiene funciones simples
+para convertir signos de cruces en notas MIDI y duraciones.
+"""
 
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Iterable, List
 
 
-@dataclass(frozen=True)
-class SoundEvent:
-    """Evento sonoro elemental."""
-
-    frequency: float
+@dataclass
+class MusicalEvent:
+    """Evento musical mínimo."""
+    pitch: int
     duration: float
-    amplitude: float
-    label: str = ""
+    velocity: int = 80
 
 
-def map_range(value: float, in_min: float, in_max: float, out_min: float, out_max: float) -> float:
-    """Mapea linealmente un valor de un intervalo a otro.
-
-    Si el intervalo de entrada es degenerado, se devuelve el punto medio del
-    intervalo de salida para evitar división entre cero.
+def crossing_sign_to_pitch(sign: int, base_pitch: int = 60, interval: int = 7) -> int:
     """
-    if in_max == in_min:
-        return (out_min + out_max) / 2
-    normalized = (value - in_min) / (in_max - in_min)
-    return out_min + normalized * (out_max - out_min)
+    Convierte el signo de un cruce en altura MIDI.
 
-
-def sequence_to_events(
-    sequence: Iterable[int],
-    base_frequency: float = 220.0,
-    step_ratio: float = 2 ** (2 / 12),
-    base_duration: float = 0.35,
-    base_amplitude: float = 0.35,
-) -> List[SoundEvent]:
-    """Convierte una secuencia discreta en eventos sonoros.
-
-    Regla inicial:
-    - el signo controla dirección de la altura;
-    - la magnitud controla cuántos pasos se aleja de la frecuencia base;
-    - el signo positivo produce un sonido más agudo;
-    - el signo negativo produce un sonido más grave;
-    - cero produce silencio aproximado con amplitud cero.
-
-    Esta regla es deliberadamente simple para que pueda documentarse y
-    modificarse en la bitácora.
+    sign > 0: sube desde la nota base.
+    sign < 0: baja desde la nota base.
+    sign = 0: conserva la nota base.
     """
-    events: List[SoundEvent] = []
-    for index, value in enumerate(sequence):
-        if value == 0:
-            frequency = base_frequency
-            amplitude = 0.0
-        else:
-            frequency = base_frequency * (step_ratio ** value)
-            amplitude = min(0.9, base_amplitude + 0.05 * abs(value))
-        duration = base_duration + 0.04 * abs(value)
-        events.append(
-            SoundEvent(
-                frequency=float(frequency),
-                duration=float(duration),
-                amplitude=float(amplitude),
-                label=f"evento_{index}_valor_{value}",
-            )
-        )
+    if sign > 0:
+        return base_pitch + interval
+    if sign < 0:
+        return base_pitch - interval
+    return base_pitch
+
+
+def crossings_to_events(crossings: list[int], base_pitch: int = 60) -> list[MusicalEvent]:
+    """
+    Convierte una lista de signos de cruces en eventos musicales.
+    """
+    events: list[MusicalEvent] = []
+    for i, sign in enumerate(crossings):
+        pitch = crossing_sign_to_pitch(sign, base_pitch=base_pitch + i * 2)
+        duration = 0.5 if sign >= 0 else 0.75
+        velocity = 90 if sign > 0 else 65
+        events.append(MusicalEvent(pitch=pitch, duration=duration, velocity=velocity))
     return events
+
+
+if __name__ == "__main__":
+    trefoil_crossings = [1, 1, 1]
+    for event in crossings_to_events(trefoil_crossings):
+        print(event)

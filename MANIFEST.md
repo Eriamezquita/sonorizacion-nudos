@@ -1,29 +1,32 @@
-# Manifiesto del repositorio
+# Manifest del proyecto
 
-Este paquete contiene una primera versión organizada del proyecto de sonorización y visualización de nudos matemáticos.
+Este archivo registra qué contiene el repositorio y qué función cumple cada parte.
 
-## Incluye
+## Documentación
 
-- Plan de trabajo completo con fechas.
-- Resumen histórico de ideas útiles del proyecto.
-- Marco teórico inicial.
-- Estado del arte y recursos mencionados.
-- Mapeos matemático-sonoros.
-- Bitácora de decisiones.
-- Roadmap 2026–2027.
-- Plantilla de reporte final.
-- Guía para subir a GitHub.
-- Código Python inicial.
-- Ejemplo reproducible del nudo trébol.
-- Script Sonic Pi equivalente.
-- Notebook inicial.
-- Archivo WAV y figura generados por el demo.
+- `docs/00_estado_del_proyecto.md`: fotografía inicial del proyecto.
+- `docs/01_manifiesto_conceptual.md`: idea filosófica, artística y matemática.
+- `docs/02_marco_teorico_nudos.md`: base matemática inicial.
+- `docs/03_sonificacion_y_mapeos.md`: traducción de variables matemáticas a sonido.
+- `docs/04_estetica_musical.md`: dirección compositiva.
+- `docs/05_theta_invariant.md`: integración futura del invariante theta.
+- `docs/06_plan_tesis_servicio_social.md`: ruta de trabajo.
+- `docs/07_referencias_iniciales.md`: bibliografía base.
 
-## Validación técnica
+## Código
 
-El demo `examples/demo_trebol_sonificacion.py` fue ejecutado correctamente y produjo:
+- `src/knots/`: representaciones y generación de datos de nudos.
+- `src/sonification/`: mapeos matemático-sonoros.
+- `src/visualization/`: visualizaciones.
+- `sonic_pi/`: ejemplos para escuchar directamente.
 
-- `outputs/audio/trebol_demo.wav`
-- `outputs/figures/trebol_eventos.png`
+## Salidas
 
-Las pruebas básicas en `tests/` pasaron correctamente.
+- `outputs/audio/`: audios exportados.
+- `outputs/figures/`: gráficas y visualizaciones.
+- `data/`: datos crudos y procesados.
+
+## Criterio de trabajo
+
+Cada idea importante del proyecto debe quedar documentada en GitHub, aunque todavía no esté implementada en código.  
+Este repositorio no debe ser solamente una carpeta de scripts: debe funcionar como bitácora, archivo conceptual y base reproducible del proyecto.
