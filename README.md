@@ -23,23 +23,23 @@ El nudo aporta restricciones, simetrías, recurrencias, cruces, orientaciones y 
 - Construir mapeos entre propiedades matemáticas y parámetros sonoros.
 - Implementar prototipos en Python y Sonic Pi.
 - Generar ejemplos reproducibles de sonificación.
-- Documentar el proceso de investigación para servicio social, tesis y difusión.
+- Documentar el proceso de investigación 
 - Crear una base clara para futuras extensiones hacia MIDI, audio, visualización interactiva y composición algorítmica.
 
 ## Estado actual
 
-Este repositorio está en etapa inicial de organización.  
-La prioridad actual es rescatar y sistematizar las ideas desarrolladas durante la conversación de trabajo en ChatGPT para que no queden dispersas.
+Estoy en etapa inicial de organización.  
+La prioridad actual es rescatar y sistematizar las ideas desarrolladas durante el lapso de investigación para que no queden dispersas.
 
 Este primer esbozo incluye:
 
-- manifiesto conceptual;
+- propuesta conceptual;
 - marco matemático inicial;
 - diseño preliminar de mapeos sonoros;
 - estética musical del proyecto;
-- ruta de trabajo para servicio social/tesis;
+- ruta de trabajo para servicio social;
 - primeros archivos de Sonic Pi y Python;
-- bitácora inicial;
+- bitácora;
 - bibliografía base.
 
 ## Herramientas previstas
@@ -91,11 +91,9 @@ sonorizacion-nudos/
 
 ## Dirección estética
 
-El piano puede funcionar como voz topológica principal.  
-Después pueden incorporarse bajo, guitarra, percusión, sintetizadores u otras capas instrumentales.
+El piano puede funcionar como voz topológica principal. Es decir, llevara el motivo de la pieza musical.
+Después pueden incorporarse bajo, guitarra, percusión, sintetizadores u otras capas instrumentales en lineas de conversación con el motivo de la pieza o con el piano (donde estará la sonificación del nudo).
 
-El jazz aparece como un lenguaje fértil porque permite trabajar con estructura, variación, conversación, tensión, resolución e improvisación. Una referencia estética importante es *A Love Supreme*, no para copiar su forma, sino por su potencia espiritual, modal, repetitiva y expansiva.
+El jazz aparece como un lenguaje fértil porque permite trabajar con estructura, variación, conversación, tensión, resolución e improvisación. Una referencia estética importante es *A Love Supreme*, no para copiar su forma, sino por su potencia espiritual, modal, repetitiva y expansiva como fuente de inspiración o proyección creativa del proyecto.
 
-## Licencia
 
-Pendiente de definir.
